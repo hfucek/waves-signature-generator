@@ -6,23 +6,7 @@ declare const Buffer: any;
 
 
 function nodeRandom(count, options) {
-    const crypto = require('crypto');
-    const buf = crypto.randomBytes(count);
-
-    switch (options.type) {
-        case 'Array':
-            return [].slice.call(buf);
-        case 'Buffer':
-            return buf;
-        case 'Uint8Array':
-            const arr = new Uint8Array(count);
-            for (let i = 0; i < count; ++i) {
-                arr[i] = buf.readUInt8(i);
-            }
-            return arr;
-        default:
-            throw new Error(options.type + ' is unsupported.');
-    }
+  
 }
 
 function browserRandom(count, options) {
